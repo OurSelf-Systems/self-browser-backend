@@ -33,7 +33,7 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
         } | )
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'webCanvas' -> () From: ( | {
          'ModuleInfo: Module: webCanvas InitialContents: FollowSlot\x7fVisibility: public'
-         directory <- '../../web-backend-plugin'.
+         directory <- '../../web-backend-plugin/objects'.
         } | )
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'webCanvas' -> () From: ( | {
          'ModuleInfo: Module: webCanvas InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'

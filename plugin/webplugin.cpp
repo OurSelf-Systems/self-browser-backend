@@ -1244,7 +1244,7 @@ static int wf_font_descent(int id, int size) {
 // The oop-library surface.  Every export takes/returns raw oops (smis for
 // ints and 0/1 booleans -- ABI 1.0 has no boolean helpers -- byteVectors for
 // strings/bytes) and is called on the VM thread via fct _Call:With:...; the
-// Self-side wrappers live in webPlugin.self beside this file.  Window handles
+// Self-side wrappers live in ../objects/webPlugin.self.  Window handles
 // are the small-integer window ids the C++ side already assigns.
 // ======================================================================
 

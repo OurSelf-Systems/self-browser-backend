@@ -31,7 +31,7 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'webHosts' -> () From: ( | {
          'ModuleInfo: Module: webHosts InitialContents: FollowSlot\x7fVisibility: public'
 
-         directory <- '../../web-backend-plugin'.
+         directory <- '../../web-backend-plugin/objects'.
         } | )
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'webHosts' -> () From: ( | {

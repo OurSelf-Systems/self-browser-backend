@@ -1,19 +1,20 @@
 "Startup script for the web (browser GUI) backend.
 
    From a self64 checkout beside this repo:
-   Self -s objects/auto.snap64 -f ../web-backend-plugin/webStart.self
+   Self -s objects/auto.snap64 -f ../web-backend-plugin/objects/webStart.self
 
  Files in the web Morphic backend modules and opens the Self desktop in the browser.
  The whole backend lives in this repo: the oop-library plugin
- (libweb.dylib|.so -- build it with make here first; the first window open
- dlopens it) and the Self modules filed in below.
+ (plugin/libweb.dylib|.so -- build it with make in plugin/ first; the first
+ window open dlopens it) and the Self modules in objects/, filed in below.
 
  Configuration via the environment:
-   SELF_WEB_PLUGIN_DIR  this repo: the Self modules AND libweb.dylib|.so
-                        (default '../web-backend-plugin', relative to the VM's
-                        working directory -- i.e. launch from the self64 repo
-                        root; must be a trusted directory if the VM runs under
-                        -T lockdown)
+   SELF_WEB_PLUGIN_DIR  this repo's root: the Self modules (objects/) AND
+                        libweb.dylib|.so (plugin/).  Default
+                        '../web-backend-plugin', relative to the VM's working
+                        directory -- i.e. launch from the self64 repo root;
+                        plugin/ must be a trusted directory if the VM runs
+                        under -T lockdown.
    SELF_OBJECTS_DIR     directory holding the Self objects tree   (default 'objects')
    SELF_WEB_LISTEN      civetweb listening_ports spec -- a comma list of port / ip:port /
                         [ipv6]:port / +port (v4+v6) / x<path> (unix socket).
@@ -25,12 +26,12 @@
 [ | wd |
     wd: os environmentAt: 'SELF_WEB_PLUGIN_DIR' IfFail: '../web-backend-plugin'.
     bootstrap selfObjectsWorkingDir: (os environmentAt: 'SELF_OBJECTS_DIR' IfFail: 'objects').
-    (wd, '/webHosts.self')  _RunScript.
-    (wd, '/web.self')       _RunScript.
-    (wd, '/webPlugin.self') _RunScript.
-    (wd, '/webFont.self')   _RunScript.
-    (wd, '/webCanvas.self') _RunScript.
-    (wd, '/webEvents.self') _RunScript.
+    (wd, '/objects/webHosts.self')  _RunScript.
+    (wd, '/objects/web.self')       _RunScript.
+    (wd, '/objects/webPlugin.self') _RunScript.
+    (wd, '/objects/webFont.self')   _RunScript.
+    (wd, '/objects/webCanvas.self') _RunScript.
+    (wd, '/objects/webEvents.self') _RunScript.
 ] value.
 
 "A stable owner name so the base seat is predictably /owner/0/0."

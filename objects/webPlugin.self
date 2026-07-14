@@ -79,15 +79,16 @@
             f _NoOfArgs: n.
             f).
 
-        "directories searched for the library: $SELF_WEB_PLUGIN_DIR first, then
-         this repo as a sibling of the VM's working directory (the usual
-         launch-from-self64-root layout), then the working directory itself"
+        "directories searched for the library, each a repo root whose plugin/
+         holds libweb: $SELF_WEB_PLUGIN_DIR first, then this repo as a sibling
+         of the VM's working directory (the usual launch-from-self64-root
+         layout), then the working directory itself"
         libDirs = ( | dirs. d |
             dirs: list copyRemoveAll.
             d: os environmentAt: 'SELF_WEB_PLUGIN_DIR' IfFail: nil.
-            d ifNotNil: [ dirs add: d ].
-            dirs add: '../web-backend-plugin'.
-            dirs add: '.'.
+            d ifNotNil: [ dirs add: d, '/plugin' ].
+            dirs add: '../web-backend-plugin/plugin'.
+            dirs add: 'plugin'.
             dirs ).
 
         "dlopen dir/libweb.dylib or dir/libweb.so; nil if neither is there"
@@ -103,7 +104,8 @@
             libDirs do: [|:d| p isNil ifTrue: [ p: tryOpen: d ]].
             p isNil ifTrue: [
                 ^ error: 'webPlugin: cannot dlopen libweb.dylib|.so ',
-                         '(build it with make in web-backend-plugin, or set SELF_WEB_PLUGIN_DIR)'].
+                         '(build it with make in web-backend-plugin/plugin, ',
+                         'or set SELF_WEB_PLUGIN_DIR to the repo root)'].
             p _InitSelfLibraryIfFail: [|:e| ^ error: 'webPlugin: init: ', e].
             so: p.
 

@@ -1,6 +1,6 @@
 # The Self oop-library ABI headers (selfLib.h / selfHelpers.h) live in the
 # self64 tree, expected as a sibling checkout; override for other layouts.
-SELF_INCLUDE ?= ../self64/vm-plugins/include
+SELF_INCLUDE ?= ../../self64/vm-plugins/include
 CIVET_DEFS = -DUSE_WEBSOCKET -DNO_SSL -DNO_CGI -DUSE_IPV6 -DUSE_X_DOM_SOCKET
 CFLAGS   = -O2 -fPIC -Wall -Icivetweb $(CIVET_DEFS)
 CXXFLAGS = -O2 -fPIC -Wall -Wextra -I$(SELF_INCLUDE) -Icivetweb $(CIVET_DEFS)
