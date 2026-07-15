@@ -87,7 +87,7 @@
             dirs: list copyRemoveAll.
             d: os environmentAt: 'SELF_WEB_PLUGIN_DIR' IfFail: nil.
             d ifNotNil: [ dirs add: d, '/plugin' ].
-            dirs add: '../web-backend-plugin/plugin'.
+            dirs add: '../self-browser-backend/plugin'.
             dirs add: 'plugin'.
             dirs ).
 
@@ -104,7 +104,7 @@
             libDirs do: [|:d| p isNil ifTrue: [ p: tryOpen: d ]].
             p isNil ifTrue: [
                 ^ error: 'webPlugin: cannot dlopen libweb.dylib|.so ',
-                         '(build it with make in web-backend-plugin/plugin, ',
+                         '(build it with make in self-browser-backend/plugin, ',
                          'or set SELF_WEB_PLUGIN_DIR to the repo root)'].
             p _InitSelfLibraryIfFail: [|:e| ^ error: 'webPlugin: init: ', e].
             so: p.

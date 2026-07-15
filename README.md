@@ -1,4 +1,4 @@
-# web-backend-plugin
+# self-browser-backend
 
 A web (browser) Morphic backend for [Self](https://github.com/russellallen/self),
 packaged as a runtime-loadable **oop-library plugin**: an embedded civetweb
@@ -29,7 +29,7 @@ expected as a sibling directory:
 
 From the self64 repo root, with this repo beside it:
 
-    Self -s objects/auto.snap64 -f ../web-backend-plugin/objects/webStart.self
+    Self -s objects/auto.snap64 -f ../self-browser-backend/objects/webStart.self
 
 then open `http://localhost:9876/owner/0/0`.  `/` lists the provisioned seats.
 
@@ -39,4 +39,4 @@ somewhere else; under `-T` lockdown `plugin/` must be trusted.
 
 For a self-contained snapshot (`Self -s web.snap64`, no `-f`):
 
-    Self -s objects/auto.snap64 -f ../web-backend-plugin/objects/buildWebSnapshot.self
+    Self -s objects/auto.snap64 -f ../self-browser-backend/objects/buildWebSnapshot.self

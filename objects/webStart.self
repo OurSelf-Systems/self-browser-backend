@@ -1,7 +1,7 @@
 "Startup script for the web (browser GUI) backend.
 
    From a self64 checkout beside this repo:
-   Self -s objects/auto.snap64 -f ../web-backend-plugin/objects/webStart.self
+   Self -s objects/auto.snap64 -f ../self-browser-backend/objects/webStart.self
 
  Files in the web Morphic backend modules and opens the Self desktop in the browser.
  The whole backend lives in this repo: the oop-library plugin
@@ -11,7 +11,7 @@
  Configuration via the environment:
    SELF_WEB_PLUGIN_DIR  this repo's root: the Self modules (objects/) AND
                         libweb.dylib|.so (plugin/).  Default
-                        '../web-backend-plugin', relative to the VM's working
+                        '../self-browser-backend', relative to the VM's working
                         directory -- i.e. launch from the self64 repo root;
                         plugin/ must be a trusted directory if the VM runs
                         under -T lockdown.
@@ -24,7 +24,7 @@
  Then open  http://<host>:<port>/owner/0/0  in a browser."
 
 [ | wd |
-    wd: os environmentAt: 'SELF_WEB_PLUGIN_DIR' IfFail: '../web-backend-plugin'.
+    wd: os environmentAt: 'SELF_WEB_PLUGIN_DIR' IfFail: '../self-browser-backend'.
     bootstrap selfObjectsWorkingDir: (os environmentAt: 'SELF_OBJECTS_DIR' IfFail: 'objects').
     (wd, '/objects/webHosts.self')  _RunScript.
     (wd, '/objects/web.self')       _RunScript.

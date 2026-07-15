@@ -32,7 +32,7 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
         } | )
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'webFont' -> () From: ( | {
          'ModuleInfo: Module: webFont InitialContents: FollowSlot\x7fVisibility: public'
-         directory <- '../../web-backend-plugin/objects'.
+         directory <- '../../self-browser-backend/objects'.
         } | )
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'webFont' -> () From: ( | {
          'ModuleInfo: Module: webFont InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
